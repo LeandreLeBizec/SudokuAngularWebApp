@@ -1,0 +1,13 @@
+.player-name-field{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.mat-form-field{
+  width: 250px;
+}
+
+.validate{
+  text-align: center;
+}

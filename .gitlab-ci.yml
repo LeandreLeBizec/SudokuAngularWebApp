@@ -1,0 +1,47 @@
+stages:
+  - build
+
+build-back:
+  image: registry.gitlab.inria.fr/diverse/docker/docker-image/insa-maven:3.8-openjdk-17
+  stage: build
+  script:
+    - cd game/game-backend
+    - mvn clean package spring-boot:repackage
+  rules:
+    - changes:
+      - "*.md"
+      when: never
+    - changes:
+      - "game/game-backend/**/*"
+      - ".gitlab-ci.yml"
+      when: always
+  artifacts:
+    paths:
+      - game/game-backend/target/site/jacoco/jacoco.xml
+    paths:
+      - game/game-backend/target/game-backend-0.0.1.jar
+    expire_in: 1 hour
+    
+build-front:
+  image: registry.gitlab.inria.fr/diverse/docker/docker-image/insa-node:16.13.2
+  stage: build
+  cache:
+    paths:
+      - game/game-frontend/node_modules/
+  script:
+    - cd game/game-frontend
+    - npm install
+    #- npm run ng lint && npm run ng build -- --configuration production --build-optimizer
+    - npm run ng build -- --configuration production --build-optimizer
+  rules:
+    - changes:
+      - "*.md"
+      when: never
+    - changes:
+      - "game/game-frontend/**/*"
+      - ".gitlab-ci.yml"
+      when: always
+  artifacts:
+    paths:
+      - game/game-frontend/dist/game-frontend/
+    expire_in: 1 hour

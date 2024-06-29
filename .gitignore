@@ -1,0 +1,10 @@
+bin
+target
+*~
+.cache
+.idea
+*.iml
+.vscode
+.classpath
+.project
+.settings

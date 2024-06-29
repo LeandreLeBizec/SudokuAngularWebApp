@@ -1,0 +1,14 @@
+{
+  "/api/*": {
+    "target": "http://localhost:4445",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/sudoku-provider/*": {
+    "target": "https://sudoku.diverse-team.fr",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

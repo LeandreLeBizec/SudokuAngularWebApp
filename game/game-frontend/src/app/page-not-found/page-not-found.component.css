@@ -1,0 +1,13 @@
+h1{
+  text-align: center;
+}
+
+a{
+  color : black;
+  display: block;
+  text-align: center;
+}
+
+a:hover{
+  color: purple;
+}

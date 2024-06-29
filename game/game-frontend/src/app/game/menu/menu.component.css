@@ -1,0 +1,88 @@
+* {
+  font-family: Bodo, sans-serif;
+}
+
+.player-name-field{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.mat-form-field{
+  width: 250px;
+}
+
+.suggestions-checkbox{
+  text-align: center;
+}
+
+.checkbox-comment{
+  color : grey;
+}
+
+.level-selected{
+  text-align: center;
+}
+
+.play{
+  text-align: center;
+}
+
+.replay{
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridIcon{
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  border: 3px solid;
+}
+
+div {
+  --size-cell: 25px;
+  --nb-cell: 9;
+}
+
+.board {
+  width: calc(var(--size-cell) * var(--nb-cell));
+  height: calc(var(--size-cell) * var(--nb-cell));
+}
+
+.cell {
+  width: calc(var(--size-cell) - 2px); /* largeur */
+  height: calc(var(--size-cell) - 2px); /* hauteur */
+  text-align: center;
+  font-size: large;
+  border: 1px solid;
+}
+
+.row{
+  display: flex;
+}
+
+.cell:nth-of-type(3n){
+  border-right: 3px solid;
+}
+.row:nth-of-type(3n){
+  border-bottom: 2px solid;
+}
+.cell:nth-of-type(9n){
+  border-right: 1px solid;
+}
+.row:nth-of-type(9n){
+  border-bottom: 1px solid;
+}
+
+.indication{
+  color : grey;
+  text-align: center;
+}
+

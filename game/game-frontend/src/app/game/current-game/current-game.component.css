@@ -1,0 +1,129 @@
+* {
+  font-family: Bodo, sans-serif;
+}
+
+div {
+  --size-cell: 60px;
+  --nb-cell: 9;
+}
+
+.container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------------------------------------History------------------------------------------------------------------*/
+
+.history{
+  flex: 0 0 30%;
+  margin-right: 10%;
+}
+
+/*--------------------------------------------Board-------------------------------------------------------------------*/
+
+.board {
+  flex : 0 0 40%;
+  width: calc(var(--size-cell) * var(--nb-cell) + 6px);
+  height: calc(var(--size-cell) * var(--nb-cell) + 7px);
+  border: 3px solid;
+}
+
+.cell {
+  width: calc(var(--size-cell) - 2px); /* largeur */
+  height: calc(var(--size-cell) - 2px); /* hauteur */
+  text-align: center;
+  font-size: large;
+  border: 1px solid;
+}
+
+.row{
+  display: flex;
+}
+
+/* Ajout des lignes pour séparer les sous-carré */
+.cell:nth-of-type(3n){
+  border-right: 3px solid;
+}
+.row:nth-of-type(3n){
+  border-bottom: 3px solid;
+}
+
+.mat-form-field{
+  width: var(--size-cell); /* largeur */
+  height: var(--size-cell); /* hauteur */
+}
+
+/* Désactiver la flèche et le soulignement des mat form field */
+.mat-select-arrow{
+  display: none;
+}
+.mat-form-field-underline{
+  display: none;
+}
+
+/* Rendre la liste défilante plus claire */
+.cell-list-choice{
+  min-width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cell-value{
+  text-align: center;
+}
+
+/* mode suggestion */
+.help-cell{
+  font-size: small;
+  color : darkgray;
+}
+
+
+/*------------------------------------------GameInformation-----------------------------------------------------------*/
+
+.game-information{
+  flex : 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10%;
+}
+
+.mat-card{
+  text-align: center;
+  width: 50%;
+}
+
+.podium{
+  text-align: center;
+  margin-right: 45%;
+  transform: scale(2);
+
+}
+
+.podium-mat-fab{
+  background-color: #d3d3d3;
+}
+
+.podium-image{
+  width: 50%;
+  height: 50%;
+}
+
+/*------------------------------------------PageNotFound--------------------------------------------------------------*/
+
+h4{
+  text-align: center;
+}
+
+a{
+  color : black;
+  display: block;
+  text-align: center;
+}
+
+a:hover{
+  color: purple;
+}

@@ -1,0 +1,54 @@
+<div *ngIf="grid">
+  <div class="container">
+
+    <div class="history">
+      <io-tree-history style="height: 80%" [style.width]="'35%'" [svgIconSize]="200" [rootRenderer]="">
+      </io-tree-history>
+    </div>
+
+    <div *ngIf="grid">
+      <div class="board">
+        <div class='row' *ngFor="let x of [0,1,2,3,4,5,6,7,8]" [attr.data-x]=x>
+          <div class='cell' *ngFor="let y of [0,1,2,3,4,5,6,7,8]" [attr.data-y]=y id="cells[{{x*9+y}}]" cellBackground>
+            <div *ngIf="grid.cells[x*9+y]!=0; else elseBlock">
+              <br>
+              {{grid.cells[x*9+y]}}
+            </div>
+            <ng-template #elseBlock>
+                <div *ngIf="helpMode" class="help-cell">{{printPossiblePlay(x*9+y)}}</div>
+                <mat-form-field>
+                  <mat-select panelClass="cell-list-choice" class="cell-value"
+                              [ioMatSelect] (matSelectBinder)="historySetValue($event, x*9+y)"
+                              [ioClick] (clickBinder)="directSet($event, x*9+y)">
+                    <mat-option>-</mat-option>
+                    <mat-option *ngFor="let i of [1,2,3,4,5,6,7,8,9]" [value]=i>{{i}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-information">
+      <div class="podium">
+        <button mat-fab color="disabled" class="podium-mat-fab" (click)="openPodiumDialogBox()">
+          <img class="podium-image" src="assets/ranking.svg" />
+        </button>
+      </div>
+      <mat-card class="player">
+        <mat-card-title>{{playerName}}</mat-card-title>
+      </mat-card>
+      <mat-card class="score">
+        <mat-card-title>score : {{score}}</mat-card-title>
+      </mat-card>
+    </div>
+
+</div>
+</div>
+<div *ngIf='!grid' class="center">
+  <h4>Aucune grille à afficher ! </h4>
+  <a routerLink="/menu">
+    Retourner à l' accueil
+  </a>
+</div>

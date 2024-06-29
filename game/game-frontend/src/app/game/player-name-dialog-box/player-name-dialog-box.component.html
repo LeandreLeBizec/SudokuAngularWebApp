@@ -1,0 +1,14 @@
+<div class="player-name-field">
+  <mat-form-field appearance="outline">
+    <mat-label>Enter your player Name</mat-label>
+    <input matInput placeholder="PlayerName" [formControl]="playerName" required>
+    <mat-error *ngIf="playerName.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+
+<div class="validate">
+  <button  (click)="validate()">Validate</button>
+</div>
+
+

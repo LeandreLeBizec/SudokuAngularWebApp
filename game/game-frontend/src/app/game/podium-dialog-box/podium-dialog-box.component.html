@@ -1,0 +1,17 @@
+<h1>Top 5 Scores</h1>
+
+<table>
+  <tr>
+    <th>rank</th>
+    <th>Name</th>
+    <th>score</th>
+  </tr>
+  <tr *ngFor="let row of podium; index as i">
+    <td>#{{i + 1}}</td>
+    <td>{{row.name}}</td>
+    <td>{{row.score}}</td>
+  </tr>
+</table>
+<br>
+
+<button (click)="close()">close</button>
